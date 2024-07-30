@@ -14,25 +14,27 @@ const TaskForm = ({ addTask }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
       <input
+        className="input"
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Task title"
       />
       <input
+        className="input"
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Task description"
       />
-      <select value={status} onChange={(e) => setStatus(e.target.value)}>
+      <select className="picker" value={status} onChange={(e) => setStatus(e.target.value)}>
         <option value="To Do">To Do</option>
         <option value="In Progress">In Progress</option>
         <option value="Done">Done</option>
       </select>
-      <button type="submit">Add Task</button>
+      <button className="button"  type="submit">Add Task</button>
     </form>
   );
 };

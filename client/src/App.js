@@ -30,7 +30,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div  className="App">
       <h1>Todo List</h1>
       <TaskForm addTask={addTask} />
       <ul>

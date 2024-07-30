@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 const Task = ({ task, updateTask, deleteTask }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -16,31 +17,33 @@ const Task = ({ task, updateTask, deleteTask }) => {
       {isEditing ? (
         <>
           <input
+           className="input"
             type="text"
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
           />
           <input
+           className="input"
             type="text"
             value={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
           />
-          <select value={newStatus} onChange={(e) => setNewStatus(e.target.value)}>
+          <select  className="picker" value={newStatus} onChange={(e) => setNewStatus(e.target.value)}>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
           </select>
-          <button onClick={handleUpdate}>Save</button>
+          <button className="editsButton" onClick={handleUpdate}>Save</button>
         </>
       ) : (
         <>
           <span>{task.title}</span> - 
           <span>{task.description}</span> - 
           <span>{task.status}</span>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button className="editButton" onClick={() => setIsEditing(true)}>Edit</button>
         </>
       )}
-      <button onClick={() => deleteTask(task._id)}>Delete</button>
+      <button  className="deleteButton" onClick={() => deleteTask(task._id)}>Delete</button>
     </li>
   );
 };
